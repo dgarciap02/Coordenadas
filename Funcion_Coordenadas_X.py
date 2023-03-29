@@ -90,7 +90,6 @@ def ordenar_x(dicc):
 
     #Printeo los objetos de cada diccionario en orden de izquiera a derecha en el eje X
 
-
     for x in x_coord:
         for key in dicc:
             if key == "data":
