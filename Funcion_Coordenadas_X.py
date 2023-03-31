@@ -67,30 +67,36 @@ dicc = {
 
 
 def ordenar_x(dicc):
-  """Te permite ordenar los objetos de un diccionario por su
-  coordenada en eje X de izquierda a derecha.
+	
+	"""Te permite ordenar los objetos de un diccionario por su
+	coordenada en eje X de izquierda a derecha.
 
-  Args:
-      dicc (dict): Diccionario que se desea ordenar
-  """
+	Args:
+		dicc (dict): Diccionario que se desea ordenar
+	"""
+	
+	x_coord = []
 
-  x_coord = []
+	# Recopilo las coordenadas X de cada objeto en una lista.
 
-  # Recopilo las coordenadas X de cada objeto en una lista.
+	for entry_data in dicc["data"]:
+		i = 0
+		for value_detec in entry_data["detections"]:
+			if i == 0:
+				x_coord.append(value_detec)
+				i = i+1
 
-  for entry_data in dicc["data"]:
-    x_coord += entry_data["detections"]
+	# Ordeno la lista.
 
-  # Ordeno la lista.
+	x_coord.sort()
 
-  x_coord.sort()
+	# Printeo los objetos de cada diccionario
+	# en orden de izquierda a derecha en el eje X
 
-  # Printeo los objetos de cada diccionario en orden de izquiera a derecha en el eje X
-
-  for x in x_coord:
-    for entry_data in dicc["data"]:
-      if x in entry_data["detections"]:
-        print(f"Objeto: {entry_data['object']}, Coordenada X: {x}")
+	for x in x_coord:
+		for entry_data in dicc["data"]:
+			if x in entry_data["detections"]:
+			  print(f"Objeto: {entry_data['object']}, Coordenada X: {x}")
 
 
 ordenar_x(dicc)
